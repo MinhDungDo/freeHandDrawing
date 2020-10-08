@@ -13,39 +13,8 @@ public class freeHandDraw : MonoBehaviour
 
     private bool validInput = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        /*var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
-        {
-            Debug.Log("hit step 1");
-            if (hit.collider.tag == "UI")
-            {
-                Debug.Log(hit.collider.tag);
-                if (Input.GetMouseButtonDown(0))
-                {
-                    drawLine();
-                }
-                if (Input.GetMouseButton(0))
-                {
-                    Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > .1f)
-                    {
-                        UpdateLine(tempFingerPos);
-                    }
-                }
-            }
-        }
-        else
-        {*/
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             drawLine();
@@ -60,7 +29,7 @@ public class freeHandDraw : MonoBehaviour
         }
     }
 
-        void drawLine()
+    void drawLine()
     {
         currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
         lineRenderer = currentLine.GetComponent<LineRenderer>();
